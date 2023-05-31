@@ -1,11 +1,13 @@
 message(STATUS "==== Building MD5 Hash Components ====")
 
-find_package(CUDA REQUIRED)
-add_library(hash_kernels OBJECT)
+add_library(hash_kernels SHARED)
 
 target_link_libraries(hash_kernels
-	PUBLIC CUDA::cudart
-	PUBLIC CUDA::nvrtc)
+    PUBLIC CUDA::cudart
+    PUBLIC CUDA::nvrtc
+    ${PYTHON_LIBRARIES}
+    pybind11::headers
+    )
 
 message("Linked CUDA libraries...")
 
@@ -36,11 +38,13 @@ message("Added all source files...")
 
 set_target_properties(
     hash_kernels PROPERTIES
-	LINKER_LANGUAGE CUDA
+    LINKER_LANGUAGE CUDA
 )
 
 install(TARGETS hash_kernels
     LIBRARY 
     DESTINATION ${CMAKE_CURRENT_SOURCE_DIR})
+
+pybind11_add_module(HashClass ${hash_headers} ${hash_sources})
 
 message(STATUS "==== Built MD5 Hash Components Successfully ====")

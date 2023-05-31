@@ -1,0 +1,80 @@
+[
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -I/usr/include/python3.10 -I/opt/cuda/targets/x86_64-linux/include -isystem /opt/cuda/include -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -x cu -c /home/shlok/research/MD5_Hash_Decryption/main.cpp -o CMakeFiles/main.dir/main.cpp.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/main.cpp",
+  "output": "CMakeFiles/main.dir/main.cpp.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dhash_kernels_EXPORTS -I/usr/include/python3.10 -I/opt/cuda/targets/x86_64-linux/include -isystem /opt/cuda/include -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/Hash_Decryptor.cu -o brute_force_kernels/CMakeFiles/hash_kernels.dir/Hash_Decryptor.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/Hash_Decryptor.cu",
+  "output": "brute_force_kernels/CMakeFiles/hash_kernels.dir/Hash_Decryptor.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dhash_kernels_EXPORTS -I/usr/include/python3.10 -I/opt/cuda/targets/x86_64-linux/include -isystem /opt/cuda/include -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-hard.cu -o brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-hard.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-hard.cu",
+  "output": "brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-hard.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dhash_kernels_EXPORTS -I/usr/include/python3.10 -I/opt/cuda/targets/x86_64-linux/include -isystem /opt/cuda/include -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-medium.cu -o brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-medium.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-medium.cu",
+  "output": "brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-medium.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dhash_kernels_EXPORTS -I/usr/include/python3.10 -I/opt/cuda/targets/x86_64-linux/include -isystem /opt/cuda/include -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-weak.cu -o brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-weak.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-weak.cu",
+  "output": "brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-weak.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dhash_kernels_EXPORTS -I/usr/include/python3.10 -I/opt/cuda/targets/x86_64-linux/include -isystem /opt/cuda/include -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-non-parallel.cu -o brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-non-parallel.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-non-parallel.cu",
+  "output": "brute_force_kernels/CMakeFiles/hash_kernels.dir/md5-non-parallel.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -Dhash_kernels_EXPORTS -I/usr/include/python3.10 -I/opt/cuda/targets/x86_64-linux/include -isystem /opt/cuda/include -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5.cu -o brute_force_kernels/CMakeFiles/hash_kernels.dir/md5.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5.cu",
+  "output": "brute_force_kernels/CMakeFiles/hash_kernels.dir/md5.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -DHashClass_EXPORTS -I/opt/cuda/targets/x86_64-linux/include -isystem /usr/include/python3.10 -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -Xcompiler=-fvisibility=hidden -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/Hash_Decryptor.cu -o brute_force_kernels/CMakeFiles/HashClass.dir/Hash_Decryptor.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/Hash_Decryptor.cu",
+  "output": "brute_force_kernels/CMakeFiles/HashClass.dir/Hash_Decryptor.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -DHashClass_EXPORTS -I/opt/cuda/targets/x86_64-linux/include -isystem /usr/include/python3.10 -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -Xcompiler=-fvisibility=hidden -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-hard.cu -o brute_force_kernels/CMakeFiles/HashClass.dir/md5-hard.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-hard.cu",
+  "output": "brute_force_kernels/CMakeFiles/HashClass.dir/md5-hard.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -DHashClass_EXPORTS -I/opt/cuda/targets/x86_64-linux/include -isystem /usr/include/python3.10 -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -Xcompiler=-fvisibility=hidden -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-medium.cu -o brute_force_kernels/CMakeFiles/HashClass.dir/md5-medium.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-medium.cu",
+  "output": "brute_force_kernels/CMakeFiles/HashClass.dir/md5-medium.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -DHashClass_EXPORTS -I/opt/cuda/targets/x86_64-linux/include -isystem /usr/include/python3.10 -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -Xcompiler=-fvisibility=hidden -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-weak.cu -o brute_force_kernels/CMakeFiles/HashClass.dir/md5-weak.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-weak.cu",
+  "output": "brute_force_kernels/CMakeFiles/HashClass.dir/md5-weak.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -DHashClass_EXPORTS -I/opt/cuda/targets/x86_64-linux/include -isystem /usr/include/python3.10 -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -Xcompiler=-fvisibility=hidden -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-non-parallel.cu -o brute_force_kernels/CMakeFiles/HashClass.dir/md5-non-parallel.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5-non-parallel.cu",
+  "output": "brute_force_kernels/CMakeFiles/HashClass.dir/md5-non-parallel.cu.o"
+},
+{
+  "directory": "/home/shlok/research/MD5_Hash_Decryption/build",
+  "command": "/opt/cuda/bin/nvcc -forward-unknown-to-host-compiler -DHashClass_EXPORTS -I/opt/cuda/targets/x86_64-linux/include -isystem /usr/include/python3.10 -g -std=c++17 --generate-code=arch=compute_52,code=[compute_52,sm_52] -Xcompiler=-fPIC -Xcompiler=-fvisibility=hidden -x cu -c /home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5.cu -o brute_force_kernels/CMakeFiles/HashClass.dir/md5.cu.o",
+  "file": "/home/shlok/research/MD5_Hash_Decryption/brute_force_kernels/md5.cu",
+  "output": "brute_force_kernels/CMakeFiles/HashClass.dir/md5.cu.o"
+}
+]

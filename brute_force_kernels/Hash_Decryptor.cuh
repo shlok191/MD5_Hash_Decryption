@@ -5,6 +5,9 @@
 #include <cuda.h>
 #include <random>
 #include <cstring>
+#include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+
 #include "md5.cuh"
 #include "md5-hard.cuh"
 #include "md5-medium.cuh"
@@ -19,6 +22,7 @@ using namespace std;
 class Hash_Decryptor
 {
 public:
+    Hash_Decryptor();
     /**
      *
      * Method: generate_hash
@@ -31,7 +35,7 @@ public:
      *
      */
 
-    string generate_hash(string password);
+    const std::string generate_hash(const std::string &password);
 
     /**
      *
@@ -43,7 +47,7 @@ public:
      *
      */
 
-    string non_parallel_func(string hash);
+    string non_parallel(const std::string &hash);
 
     /**
      *
@@ -55,7 +59,7 @@ public:
      *
      */
 
-    string weak_parallel_func(string hash);
+    string weak_parallel(const std::string &hash);
 
     /**
      *
@@ -67,7 +71,7 @@ public:
      *
      */
 
-    string medium_parallel_func(string hash);
+    string medium_parallel(const std::string &hash);
 
     /**
      *
@@ -79,7 +83,7 @@ public:
      *
      */
 
-    string hard_parallel_func(string hash);
+    string hard_parallel(const std::string &hash);
 };
 
 #endif

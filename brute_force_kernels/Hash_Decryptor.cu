@@ -2,6 +2,10 @@
 #include <cuda.h>
 #include <random>
 #include <cstring>
+#include <pybind11/pybind11.h>
+#include <codecvt>
+#include <pybind11/stl.h>
+#include <bits/stdc++.h>
 #include "Hash_Decryptor.cuh"
 #include "md5.cuh"
 #include "md5-hard.cuh"
@@ -9,9 +13,16 @@
 #include "md5-weak.cuh"
 #include "md5-non-parallel.cuh"
 
+namespace py = pybind11;
+
 using namespace std;
 
-string Hash_Decryptor::generate_hash(string password)
+Hash_Decryptor::Hash_Decryptor()
+{
+    std::printf("Initialized Hash Decryptor object");
+}
+
+const std::string Hash_Decryptor::generate_hash(const std::string &password)
 {
 
     char *hash = new char[32];
@@ -35,12 +46,18 @@ string Hash_Decryptor::generate_hash(string password)
 
     cudaMemcpy(hash, device_hash, 32 * sizeof(char), cudaMemcpyDeviceToHost);
 
-    string str_hash(hash);
+    const std::string str_hash = hash;
 
-    return str_hash;
+    stringstream ss;
+    for (size_t i = 0; i < str_hash.length(); i += 2)
+    {
+        unsigned char byte = std::stoi(str_hash.substr(i, 2), nullptr, 16);
+        ss << byte;
+    }
+    return ss.str();
 }
 
-string Hash_Decryptor::non_parallel_func(string hash)
+string Hash_Decryptor::non_parallel(const std::string &hash)
 {
 
     int p_len = 7;
@@ -83,7 +100,7 @@ string Hash_Decryptor::non_parallel_func(string hash)
     }
 }
 
-string Hash_Decryptor::weak_parallel_func(string hash)
+string Hash_Decryptor::weak_parallel(const std::string &hash)
 {
     int p_len = 7;
 
@@ -135,7 +152,7 @@ string Hash_Decryptor::weak_parallel_func(string hash)
     }
 }
 
-string Hash_Decryptor::medium_parallel_func(string hash)
+string Hash_Decryptor::medium_parallel(const std::string &hash)
 {
     int p_len = 7;
 
@@ -187,7 +204,7 @@ string Hash_Decryptor::medium_parallel_func(string hash)
     }
 }
 
-string Hash_Decryptor::hard_parallel_func(string hash)
+string Hash_Decryptor::hard_parallel(const std::string &hash)
 {
     int p_len = 7;
 
@@ -237,4 +254,15 @@ string Hash_Decryptor::hard_parallel_func(string hash)
         string not_found = "Inconclusive attack.";
         return not_found;
     }
+}
+
+PYBIND11_MODULE(HashClass, m)
+{
+    py::class_<Hash_Decryptor>(m, "Hash_Decryptor")
+        .def(py::init<>())
+        .def("generate_hash", &Hash_Decryptor::generate_hash, "Generates an MD5 hash from a given string", py::arg("password") = "Shlok")
+        .def("non_parallel", &Hash_Decryptor::non_parallel)
+        .def("weak_parallel", &Hash_Decryptor::weak_parallel)
+        .def("medium_parallel", &Hash_Decryptor::medium_parallel)
+        .def("hard_parallel", &Hash_Decryptor::hard_parallel);
 }

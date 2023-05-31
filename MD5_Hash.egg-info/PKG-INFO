@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: MD5-Hash
+Version: 1.0.0
+Summary: Test Project for PyBind Introduction
+Author: Shlok Sabarwal
+Author-email: ssabarwal@wisc.edu
+Requires-Python: >=3.8
+Provides-Extra: test

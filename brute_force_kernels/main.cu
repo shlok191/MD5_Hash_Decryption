@@ -7,62 +7,66 @@
 
 using namespace std;
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
 
-    char* password = new char[10];
-    char* hash = new char[32];
-    char* device_password;
-    char* device_hash;
-    char* returned_d_password;
+    char *password = new char[10];
+    char *hash = new char[32];
+    char *device_password;
+    char *device_hash;
+    char *returned_d_password;
 
-    bool *match = new bool(false); 
+    bool *match = new bool(false);
     bool *d_match;
 
     int p_len = 0;
-    
+
     /* Accept password for conversion from user */
-    if(argc > 1){
+    if (argc > 1)
+    {
 
         password = argv[1];
     }
 
-    while(password[p_len] != '\0'){
+    while (password[p_len] != '\0')
+    {
         p_len++;
     }
 
-    char* returned_password = new char[p_len];
+    char *returned_password = new char[p_len];
 
     /* Calculating total combinations */
     long long combinations = 0;
 
-    for(int i = 1; i <= p_len; i++){
+    for (int i = 1; i <= p_len; i++)
+    {
 
         combinations += pow(62, i);
     }
 
-    long long blocks = (combinations/256000);
+    long long blocks = (combinations / 256000);
 
-    if(combinations%256000 != 0)
+    if (combinations % 256000 != 0)
         blocks++;
-    
-    cudaMalloc((void**)&device_password, p_len*sizeof(char));
-    cudaMalloc((void**)&device_hash, 32*sizeof(char));
-    
-    cudaMalloc((void**)&returned_d_password, p_len*sizeof(char));
+
+    cudaMalloc((void **)&device_password, p_len * sizeof(char));
+    cudaMalloc((void **)&device_hash, 32 * sizeof(char));
+
+    cudaMalloc((void **)&returned_d_password, p_len * sizeof(char));
     cudaMalloc(&d_match, sizeof(bool));
-    
+
     cudaMemcpy(d_match, match, sizeof(bool), cudaMemcpyHostToDevice);
-    cudaMemcpy(device_password, password, p_len*sizeof(char), cudaMemcpyHostToDevice);
+    cudaMemcpy(device_password, password, p_len * sizeof(char), cudaMemcpyHostToDevice);
 
     /* Call hash function and output generated hash from given password */
-    hash_gen<<<1, 1>>> (device_password, device_hash);
+    hash_gen<<<1, 1>>>(device_password, device_hash);
     cudaDeviceSynchronize();
 
-    cudaMemcpy(hash, device_hash, 32*sizeof(char), cudaMemcpyDeviceToHost);
+    cudaMemcpy(hash, device_hash, 32 * sizeof(char), cudaMemcpyDeviceToHost);
 
     cudaEvent_t start;
     cudaEvent_t stop;
-            
+
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
 
@@ -77,7 +81,7 @@ int main(int argc, char *argv[]){
     cudaEventRecord(stop);
     cudaEventSynchronize(stop);
 
-    cudaMemcpy(returned_password, returned_d_password, p_len*sizeof(char), cudaMemcpyDeviceToHost);
+    cudaMemcpy(returned_password, returned_d_password, p_len * sizeof(char), cudaMemcpyDeviceToHost);
 
     /* Get the elapsed time in milliseconds */
     float ms;
@@ -87,4 +91,3 @@ int main(int argc, char *argv[]){
 
     return 0;
 }
-
